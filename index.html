@@ -52,6 +52,7 @@
   <ul>
     <li>DNS：走代理域名在节点侧解析，目标域名+IP 全在规则里就不漏；怕漏用白名单兜底 <code>FINAL,proxy</code>。验证：<a href="https://www.dnsleaktest.com/">dnsleaktest.com</a>。</li>
     <li>WebRTC：小火箭（iPhone/iPad/macOS）：设置 → UDP → 禁用 STUN；验证：<a href="https://browserleaks.com/webrtc">browserleaks.com/webrtc</a> 只露节点 IP。</li>
+    <li>IPv6：默认关闭（<code>ipv6=false</code>）——避免 IPv6 绕过分流；需要自行开启。</li>
   </ul>
 
   <p class="note">详细机制、STUN/UDP 说明见仓库 README。</p>

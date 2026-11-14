@@ -24,6 +24,14 @@
 
 ---
 
+## ⚠️ IPv6 默认关闭（重要）
+
+本配置在 `[General]` 里默认 **`ipv6 = false`**：拒绝所有 IPv6 连接、强制全部走 IPv4/代理。原因——IPv6 极易绕过分流（规则多只匹配 A 记录时，AAAA 会悄悄直连），造成 IP 分裂、DNS 不一致、WebRTC 泄漏、风控异常。
+
+> **需要 IPv6 的人**：自行把 `ipv6 = false` 改成 `true`（或 `domainStrategy` 用 `ForceIPv4` / `UseIPv4`），或换用另一套规则，风险自负。
+
+---
+
 ## 📦 一键导入
 
 | GitHub Pages（推荐） | Gitea（备用） |
@@ -87,6 +95,10 @@ STUN 走 UDP 端口 `3478 / 5349 / 19302`。Shadowrocket 用上面的「禁用 S
 { "protocol": "stun", "outbound": "🚀 默认代理" },
 { "port": [3478, 5349, 19302], "network": "udp", "outbound": "🚀 默认代理" }
 ```
+
+### IPv6
+
+默认 `ipv6 = false`（关闭）。开启会绕过规则直连，需自行修改，风险自负。验证：IP 查询工具里出口只剩 IPv4。
 
 ---
 
