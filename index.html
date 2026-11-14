@@ -3,13 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>anti awful Claude rules</title>
+<title>wayne-anti · 白名单机制 · Claude/KYC 安全分流规则</title>
 <style>
   :root{color-scheme:light dark}
-  body{font-family:system-ui,-apple-system,"PingFang SC",sans-serif;max-width:760px;margin:0 auto;padding:24px 18px;line-height:1.75}
+  body{font-family:system-ui,-apple-system,"PingFang SC",sans-serif;max-width:780px;margin:0 auto;padding:24px 18px;line-height:1.75}
   h1{font-size:1.5rem;margin:.2em 0}
   h2{font-size:1.15rem;margin-top:1.6em}
   .sub{color:#888;font-size:.92rem;margin-bottom:1.2em}
+  .badge{display:inline-block;background:#e0f2fe;color:#0369a1;border-radius:999px;padding:1px 10px;font-size:.78rem;font-weight:700;vertical-align:middle}
   .card{border:1px solid #d8dce0;border-radius:12px;padding:16px;margin:14px 0;display:flex;gap:18px;align-items:center;flex-wrap:wrap}
   .card img{border-radius:8px;background:#fff;padding:6px}
   .url{word-break:break-all;font-size:.9rem;margin-top:4px}
@@ -21,21 +22,21 @@
 </style>
 </head>
 <body>
-  <h1>anti awful Claude rules</h1>
-  <p class="sub">基于 <code>sr_cnip_ad</code>（国内外划分 + 广告过滤）的 Shadowrocket 配置：<b>FINAL,proxy 兜底</b> + <b>Claude / Anthropic / Persona(KYC) 全域名强制代理</b>，避免账号流量漏直连、暴露真实 IP。</p>
+  <h1>wayne-anti <span class="badge">白名单机制 · 默认走代理</span></h1>
+  <p class="sub">基于 <code>sr_cnip_ad</code>（国内外划分 + 广告过滤）的 Shadowrocket 配置：兜底 <b>FINAL,proxy</b>（未收录即走代理，fail-safe），只把国内网站挑出来直连；并置顶 <b>Claude / Anthropic / Persona(KYC) 全域名强制代理</b>。</p>
 
   <h2>一键导入 / 扫码</h2>
   <div class="card">
     <div style="flex:1;min-width:220px">
       <div><b>GitHub Pages</b>（推荐）</div>
-      <div class="url"><a href="https://is-wayne.github.io/anti-awful-claude-rules/wayne-anti.conf">wayne-anti.conf</a></div>
+      <div class="url"><a href="https://is-wayne.github.io/anti-awful-claude-rules/wayne-anti-whitelist.conf">wayne-anti-whitelist.conf</a></div>
     </div>
     <img src="qr/wayne-anti-github.png" alt="GitHub Pages 二维码" width="220" height="220">
   </div>
   <div class="card">
     <div style="flex:1;min-width:220px">
       <div><b>Gitea</b>（备用）</div>
-      <div class="url"><a href="https://git.iswayne.com/wayne/anti-awful-claude-rules/raw/branch/main/wayne-anti.conf">Gitea raw 链接</a></div>
+      <div class="url"><a href="https://git.iswayne.com/wayne/anti-awful-claude-rules/raw/branch/main/wayne-anti-whitelist.conf">Gitea raw 链接</a></div>
     </div>
     <img src="qr/wayne-anti-gitea.png" alt="Gitea 二维码" width="220" height="220">
   </div>
@@ -47,6 +48,12 @@
     <li>导入后断开并重连一次，使规则生效。</li>
   </ul>
 
-  <p class="note">建议把 DNS 设为 DoH（如 <code>https://1.1.1.1/dns-query</code>）或走代理，避免 DNS 泄露。详见 README。</p>
+  <h2>DNS / WebRTC 防泄漏</h2>
+  <ul>
+    <li>DNS：走代理域名在节点侧解析，目标域名+IP 全在规则里就不漏；怕漏用白名单兜底 <code>FINAL,proxy</code>。验证：<a href="https://www.dnsleaktest.com/">dnsleaktest.com</a>。</li>
+    <li>WebRTC：小火箭打开「禁用 STUN」；验证：<a href="https://browserleaks.com/webrtc">browserleaks.com/webrtc</a> 只露节点 IP。</li>
+  </ul>
+
+  <p class="note">详细机制、STUN/UDP 说明见仓库 README。</p>
 </body>
 </html>
