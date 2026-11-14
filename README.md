@@ -74,7 +74,7 @@
 ### WebRTC（禁用 STUN）
 
 - **Shadowrocket：`设置 → UDP → 禁用 STUN`（打开）**
-- 桌面端：Firefox 在 `about:config` 关闭 `media.peerconnection.enabled`；Chrome 安装 *WebRTC Control* 扩展。
+- macOS 版小火箭相同：`设置 → UDP → 禁用 STUN`（Windows 待实测后补充）。
 - 验证：[browserleaks.com/webrtc](https://browserleaks.com/webrtc) —— 只暴露节点 IP、无本地 IP 才算过。
 - 教程：<https://youtu.be/ONd_rAYLji0?is=utzTbZvGeMZJp7pa>
 
@@ -126,7 +126,7 @@ STUN 走 UDP 端口 `3478 / 5349 / 19302`。Shadowrocket 用上面的「禁用 S
 
 - 规则基底：[Johnshall/Shadowrocket-ADBlock-Rules-Forever](https://github.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever)（`sr_cnip_ad.conf`）
 - 域名清单：[ip.net.coffee](https://ip.net.coffee/claude/site.html)
-- 出口 IP 选型 / KYC 风控方法论：[NexIP 博客](https://nexip.net/blog/289.html)、NodeSeek 讨论帖
+- KYC 网络出口排查方法论：NodeSeek 讨论帖
 
 本作品采用 **CC BY-SA 4.0** 许可（与原项目一致），详见 [LICENSE](LICENSE)。感谢原作者。
 
