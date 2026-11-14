@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>anti awful Claude rules</title>
+<style>
+  :root{color-scheme:light dark}
+  body{font-family:system-ui,-apple-system,"PingFang SC",sans-serif;max-width:760px;margin:0 auto;padding:24px 18px;line-height:1.75}
+  h1{font-size:1.5rem;margin:.2em 0}
+  h2{font-size:1.15rem;margin-top:1.6em}
+  .sub{color:#888;font-size:.92rem;margin-bottom:1.2em}
+  .card{border:1px solid #d8dce0;border-radius:12px;padding:16px;margin:14px 0;display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+  .card img{border-radius:8px;background:#fff;padding:6px}
+  .url{word-break:break-all;font-size:.9rem;margin-top:4px}
+  code{background:#f2f4f7;padding:.1em .4em;border-radius:5px}
+  ul{padding-left:1.25em}
+  .note{color:#888;font-size:.88rem}
+  a{color:#2563eb;text-decoration:none}
+  a:hover{text-decoration:underline}
+</style>
+</head>
+<body>
+  <h1>anti awful Claude rules</h1>
+  <p class="sub">基于 <code>sr_cnip_ad</code>（国内外划分 + 广告过滤）的 Shadowrocket 配置：<b>FINAL,proxy 兜底</b> + <b>Claude / Anthropic / Persona(KYC) 全域名强制代理</b>，避免账号流量漏直连、暴露真实 IP。</p>
+
+  <h2>一键导入 / 扫码</h2>
+  <div class="card">
+    <div style="flex:1;min-width:220px">
+      <div><b>GitHub Pages</b>（推荐）</div>
+      <div class="url"><a href="https://is-wayne.github.io/anti-awful-claude-rules/optimized-sr_cnip_ad-claude.conf">optimized-sr_cnip_ad-claude.conf</a></div>
+    </div>
+    <img src="qr/optimized-github.png" alt="GitHub Pages 二维码" width="220" height="220">
+  </div>
+  <div class="card">
+    <div style="flex:1;min-width:220px">
+      <div><b>Gitea</b>（备用）</div>
+      <div class="url"><a href="https://git.iswayne.com/wayne/anti-awful-claude-rules/raw/branch/main/optimized-sr_cnip_ad-claude.conf">Gitea raw 链接</a></div>
+    </div>
+    <img src="qr/optimized-gitea.png" alt="Gitea 二维码" width="220" height="220">
+  </div>
+
+  <h2>用法</h2>
+  <ul>
+    <li>方法一：用 Safari 或 Shadowrocket 扫描上面的二维码。</li>
+    <li>方法二：Shadowrocket →「配置」→ 右上角 <b>+</b> → 把上面的 URL 粘贴进去 → 下载。</li>
+    <li>导入后断开并重连一次，使规则生效。</li>
+  </ul>
+
+  <p class="note">建议把 DNS 设为 DoH（如 <code>https://1.1.1.1/dns-query</code>）或走代理，避免 DNS 泄露。详见 README。</p>
+</body>
+</html>

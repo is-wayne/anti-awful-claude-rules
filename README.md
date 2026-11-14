@@ -1,6 +1,20 @@
-# Shadowrocket Claude / KYC 安全分流规则（优化版）
+# anti awful Claude rules
 
-在 [Johnshall/Shadowrocket-ADBlock-Rules-Forever](https://github.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever) 的 `sr_cnip_ad.conf`（国内外划分 + 广告过滤）基础上，加入「Claude / Anthropic / Persona(KYC) 全域名强制走代理」，用于避免账号相关流量因规则漏配而直连、暴露真实 IP。
+基于 [Johnshall/Shadowrocket-ADBlock-Rules-Forever](https://github.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever) 的 `sr_cnip_ad.conf`（国内外划分 + 广告过滤）优化，加入 **Claude / Anthropic / Persona(KYC) 全域名强制代理**，避免账号相关流量因规则漏配而直连、暴露真实 IP。
+
+## 一键导入 / 扫码
+
+- **GitHub Pages（推荐）**：<https://is-wayne.github.io/anti-awful-claude-rules/optimized-sr_cnip_ad-claude.conf>
+- **Gitea（备用）**：<https://git.iswayne.com/wayne/anti-awful-claude-rules/raw/branch/main/optimized-sr_cnip_ad-claude.conf>
+- **落地页（含二维码）**：<https://is-wayne.github.io/anti-awful-claude-rules/>
+
+### 用法
+
+1. 用 Safari 或 Shadowrocket 扫描落地页上的二维码；或
+2. Shadowrocket →「配置」→ 右上角 **+** → 粘贴上面的 URL → 下载；
+3. 导入后断开并重连一次，使规则生效。
+
+> 建议把 DNS 设为 DoH（如 `https://1.1.1.1/dns-query`）或走代理，避免 DNS 泄露（`GEOIP,CN` 判定需要解析域名）。
 
 ## 为什么需要这个（真实翻车复盘）
 
@@ -23,13 +37,6 @@
 
 原有「国内外划分 + 广告过滤 + `FINAL,proxy`」全部保留，未改动。
 
-## 使用
-
-- 将 `optimized-sr_cnip_ad-claude.conf` 作为 Shadowrocket 配置导入；**手机与电脑建议用同一份**，保证出口一致。
-- 或：把 `claude-kyc-proxy.snippet` 里的规则粘贴到你现有配置 `[Rule]` 的最顶部。
-
-> 建议把 DNS 设为 DoH（如 `https://1.1.1.1/dns-query`）或走代理，避免 DNS 泄露（`GEOIP,CN` 判定需要解析域名）。
-
 ## 应用后验证
 
 - 打开 `https://withpersona.com/cdn-cgi/trace` → 应显示代理节点地区（如 `SG`），而不是 `CN`；
@@ -38,12 +45,20 @@
 
 ## 文件
 
-- `optimized-sr_cnip_ad-claude.conf`：完整配置（基于 `sr_cnip_ad.conf`，约 5.3 万行）。
-- `claude-kyc-proxy.snippet`：仅 Claude / KYC 的置顶规则块，便于自行粘贴。
+- `optimized-sr_cnip_ad-claude.conf`：完整 Shadowrocket 配置（基于 `sr_cnip_ad.conf`，约 5.3 万行）。
+- `claude-kyc-proxy.snippet`：仅 Claude / KYC 的置顶规则块，便于粘贴到现有配置。
+- `index.html` / `qr/`：GitHub Pages 落地页与二维码。
+- `push-both.sh`：一键提交并同时推送到 GitHub + Gitea。
 
-## 来源与致谢
+## 维护（双推）
+
+```bash
+./push-both.sh "提交说明"   # 提交并推送到 github 与 gitea
+```
+
+## 来源与许可
 
 - 基于 [Johnshall/Shadowrocket-ADBlock-Rules-Forever](https://github.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever) 的 `sr_cnip_ad.conf` 修改；
 - Claude / Anthropic / KYC 域名清单参考 [ip.net.coffee](https://ip.net.coffee/claude/site.html)。
 
-原项目未声明标准开源许可证（GitHub 标记为 `NOASSERTION`），本仓库仅作个人配置分享，请遵循原项目条款。
+本作品采用 **CC BY-SA 4.0** 许可（与原项目一致），详见 [LICENSE](LICENSE)。

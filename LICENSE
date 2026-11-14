@@ -1,0 +1,8 @@
+This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License.
+To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/4.0/
+
+本作品基于 Johnshall/Shadowrocket-ADBlock-Rules-Forever（CC BY-SA 4.0）修改：
+- 保留其 sr_cnip_ad.conf 的「国内外划分 + 广告过滤 + FINAL,proxy」结构；
+- 增加 Claude / Anthropic / Persona(KYC) 相关域名的置顶强制代理规则。
+
+任何再分发或修改，请遵循 CC BY-SA 4.0（署名 + 相同方式共享）。
