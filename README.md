@@ -46,7 +46,7 @@
 ### ① 顶部 · 账号相关强制代理（优先级最高）
 
 - **核心**：`anthropic.com`、`claude.ai`、`claude.com`、`clau.de`、`claudemcpclient.com`、`claudemcpcontent.com`、`claudeusercontent.com`
-- **KYC 核验**：`withpersona.com`、`frompersona.com`、`maps.googleapis.com`
+- **KYC 核验（博主确认）**：`withpersona.com`（证件/自拍）、`frompersona.com`（KYC 邮件）、`maps.googleapis.com`（Google 地图位置解析，可能比对 IP 与申诉时的办公地址是否一致）
 - **认证 / CDN / 监控**：`anthropic.auth0.com`、`sentry.io`、`statsig*`、`datadog`、`sift`、`intercom*`
 - **IP 兜底**：`160.79.104.0/21`、`2607:6bc0::/32`（ASN 规则默认注释）
 
