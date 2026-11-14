@@ -4,8 +4,8 @@
 
 ## 一键导入 / 扫码
 
-- **GitHub Pages（推荐）**：<https://is-wayne.github.io/anti-awful-claude-rules/optimized-sr_cnip_ad-claude.conf>
-- **Gitea（备用）**：<https://git.iswayne.com/wayne/anti-awful-claude-rules/raw/branch/main/optimized-sr_cnip_ad-claude.conf>
+- **GitHub Pages（推荐）**：<https://is-wayne.github.io/anti-awful-claude-rules/wayne-anti.conf>
+- **Gitea（备用）**：<https://git.iswayne.com/wayne/anti-awful-claude-rules/raw/branch/main/wayne-anti.conf>
 - **落地页（含二维码）**：<https://is-wayne.github.io/anti-awful-claude-rules/>
 
 ### 用法
@@ -45,7 +45,7 @@
 
 ## 文件
 
-- `optimized-sr_cnip_ad-claude.conf`：完整 Shadowrocket 配置（基于 `sr_cnip_ad.conf`，约 5.3 万行）。
+- `wayne-anti.conf`：完整 Shadowrocket 配置（基于 `sr_cnip_ad.conf`，约 5.3 万行）。
 - `claude-kyc-proxy.snippet`：仅 Claude / KYC 的置顶规则块，便于粘贴到现有配置。
 - `index.html` / `qr/`：GitHub Pages 落地页与二维码。
 - `push-both.sh`：一键提交并同时推送到 GitHub + Gitea。
