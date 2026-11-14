@@ -1,0 +1,29 @@
+# ===== Claude / Anthropic / Persona-KYC 强制代理（置顶，优先于广告与 GEOIP 判定）=====
+# 用法：把本块粘贴到 Shadowrocket 配置 [Rule] 的最顶部（先于原规则/FINAL）。
+# 重点：withpersona.com 是 KYC 真正上传证件的域名，务必保留。
+DOMAIN-SUFFIX,anthropic.com,PROXY
+DOMAIN-SUFFIX,claude.ai,PROXY
+DOMAIN-SUFFIX,claude.com,PROXY
+DOMAIN-SUFFIX,clau.de,PROXY
+DOMAIN-SUFFIX,claudemcpclient.com,PROXY
+DOMAIN-SUFFIX,claudemcpcontent.com,PROXY
+DOMAIN-SUFFIX,claudeusercontent.com,PROXY
+DOMAIN-SUFFIX,withpersona.com,PROXY
+DOMAIN-SUFFIX,frompersona.com,PROXY
+DOMAIN-SUFFIX,maps.googleapis.com,PROXY
+DOMAIN,anthropic.auth0.com,PROXY
+DOMAIN,anthropic-com.ghost.io,PROXY
+DOMAIN,servd-anthropic-website.b-cdn.net,PROXY
+DOMAIN,anthropic.com.cdn.cloudflare.net,PROXY
+DOMAIN-SUFFIX,sentry.io,PROXY
+DOMAIN-SUFFIX,statsigapi.net,PROXY
+DOMAIN,browser-intake-us5-datadoghq.com,PROXY
+DOMAIN-KEYWORD,datadog,PROXY
+DOMAIN-KEYWORD,sift,PROXY
+DOMAIN-SUFFIX,intercom.io,PROXY
+DOMAIN-SUFFIX,intercomcdn.com,PROXY
+DOMAIN,cdn.usefathom.com,PROXY
+IP-CIDR,160.79.104.0/21,PROXY,no-resolve
+IP-CIDR6,2607:6bc0::/32,PROXY,no-resolve
+# 若客户端支持 ASN 匹配可取消下行注释（Shadowrocket 部分版本不支持，误用会整份报错）
+# IP-ASN,399358,PROXY
